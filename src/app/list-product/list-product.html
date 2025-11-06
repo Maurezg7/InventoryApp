@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container text-center" style="margin: 3vh;">
+  <div class="container text-center" style="margin: 3vh">
     <h3>System inventory</h3>
   </div>
 
@@ -10,27 +10,24 @@
         <th scope="col">Description</th>
         <th scope="col">Price</th>
         <th scope="col">Existence</th>
+        <th scope="col" class="text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
+      @for(product of products; track product.idProduct){
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>mdo</td>
+        <th scope="row">{{product.idProduct}}</th>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.existence}}</td>
+        <td class="text-center">
+          <div>
+            <button (click)="editProduct(product.idProduct)" class="btn btn-warning btn-sm me-3">Edit</button>
+            <button (click)="deleteProduct(product.idProduct)" class="btn btn-danger btn-sm me-3">Delete</button>
+          </div>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>John</td>
-        <td>Doe</td>
-        <td>social</td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>
